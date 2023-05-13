@@ -6,14 +6,16 @@ public class GerenciadorDeContatos {
 
     public void adicionarContato(String nome, String telefone){
         this.contatos.put(nome, telefone);
-        
+
         System.out.println("Contato adicionado: " + nome + " - " + telefone);
+        System.out.println();
     }
 
     public void removerContato(String nome){
         this.contatos.remove(nome);
 
         System.out.println("Contato removido: " + nome);
+        System.out.println();
     }
 
     public void buscarContato(String nome){
