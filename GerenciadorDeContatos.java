@@ -6,10 +6,14 @@ public class GerenciadorDeContatos {
 
     public void adicionarContato(String nome, String telefone){
         this.contatos.put(nome, telefone);
+        
+        System.out.println("Contato adicionado: " + nome + " - " + telefone);
     }
 
     public void removerContato(String nome){
         this.contatos.remove(nome);
+
+        System.out.println("Contato removido: " + nome);
     }
 
     public void buscarContato(String nome){
@@ -17,6 +21,8 @@ public class GerenciadorDeContatos {
     }
 
     public void listarContatos(){
+
+        System.out.println("Contatos:");
 
         contatos.forEach((key, value) -> {
             System.out.print(key);
