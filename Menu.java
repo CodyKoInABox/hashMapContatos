@@ -31,9 +31,15 @@ public class Menu {
             System.out.println(descricao);
         });
 
-        try (Scanner scanner = new Scanner(System.in)) {
-            return scanner.nextInt();
-        }
+
+        Scanner scanner = new Scanner(System.in);
+
+            Integer opcao = scanner.nextInt();
+            scanner.nextLine();
+            scanner.close();
+        
+
+        return opcao;
 
     }
 

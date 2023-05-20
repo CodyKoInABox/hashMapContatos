@@ -2,6 +2,8 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class GerenciadorDeContatos {
+
+    final private static Scanner scanner = new Scanner(System.in);
     
     private HashMap<String, String> contatos = new HashMap<String, String>();
 
@@ -13,16 +15,31 @@ public class GerenciadorDeContatos {
     }
 
     public void adicionarContatoScanner(){
-        System.out.println();
-        System.out.println("Adicionar contato:");
+        String nome = "";
+        String telefone = "";
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Insira o nome: ");
-        String nome = scanner.nextLine();
-        System.out.println();
-        System.out.print("Insira o telefone: ");
-        String telefone = scanner.nextLine();
-        scanner.close();
-        this.adicionarContato(nome, telefone);
+        
+        //System.out.println();
+        System.out.println("Adicionar contato:");
+        System.out.println("Insira o nome: ");
+        //System.out.println();
+
+        if(scanner.hasNextLine()){
+            nome = scanner.nextLine();
+        }
+        
+        //System.out.println();
+        System.out.println("Insira o telefone: ");
+        
+        
+        if(scanner.hasNextLine()){
+            telefone = scanner.nextLine();
+        }
+
+        if(nome != "" && telefone != ""){
+            this.adicionarContato(nome, telefone);
+        }
+        
     }
 
     public void removerContato(String nome){
@@ -35,11 +52,9 @@ public class GerenciadorDeContatos {
     public void removerContatoScanner(){
         System.out.println();
         System.out.println("Remover contato:");
-        Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.print("Insira o nome: ");
-        String nome = scanner.nextLine();
-        scanner.close();
+        String nome = GerenciadorDeContatos.scanner.next();
         this.removerContato(nome);
     }
 
@@ -56,11 +71,9 @@ public class GerenciadorDeContatos {
     public void buscarContatoScanner(){
         System.out.println();
         System.out.println("Buscar contato:");
-        Scanner scanner = new Scanner(System.in);
         System.out.println();
         System.out.print("Insira o nome: ");
-        String nome = scanner.nextLine();
-        scanner.close();
+        String nome = GerenciadorDeContatos.scanner.next();
         this.buscarContato(nome);
     }
 
