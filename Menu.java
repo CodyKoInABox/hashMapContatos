@@ -1,7 +1,8 @@
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class Menu {
+
+    private Input input = new Input();
 
     public Menu() {}
     
@@ -21,9 +22,10 @@ public class Menu {
         this.items.remove(numeroDoItem);
     }
 
-    public Integer abrirESelecionarOpcao(){
+    public void abrir(){
 
-        System.out.println("Escolha uma opcao:");
+        System.out.println();
+        System.out.println("--> MENU");
 
         items.forEach((numero, descricao) -> {
             System.out.print(numero);
@@ -31,16 +33,15 @@ public class Menu {
             System.out.println(descricao);
         });
 
+        System.out.print("--> Escolha uma opcao: ");
 
-        Scanner scanner = new Scanner(System.in);
+    }
 
-            Integer opcao = scanner.nextInt();
-            scanner.nextLine();
-            scanner.close();
+    public Integer selecionarOpcao(){
         
+        Integer opcao = input.pedirInteger(null);
 
         return opcao;
-
     }
 
 }

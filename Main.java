@@ -2,7 +2,7 @@ public class Main{
     
     public static void main(String args[]){
 
-
+        Input input = new Input();
         
         GerenciadorDeContatos gerenciador = new GerenciadorDeContatos();
 
@@ -11,26 +11,54 @@ public class Main{
 
         Menu menu = new Menu(itemsMenu);
         
-        switch(menu.abrirESelecionarOpcao()){
+        while(true){
+
+        menu.abrir();
+
+        switch(menu.selecionarOpcao()){
             case 1:
-                gerenciador.adicionarContatoScanner();
+                System.out.println();
+                System.out.println("ADICIONAR CONTATO:");
+                System.out.println();
+                String nome1 = input.pedirStringMesmaLinha("Insira o nome: ");
+                String telefone1 = input.pedirStringMesmaLinha("Insira o telefone: ");
+                gerenciador.adicionarContato(nome1, telefone1);
             break;
-            
+
             case 2:
-                gerenciador.removerContatoScanner();
+                System.out.println();
+                System.out.println("REMOVER CONTATO:");
+                System.out.println();
+                String nome2 = input.pedirStringMesmaLinha("Insira o nome: ");
+                gerenciador.removerContato(nome2);
+
             break;
 
             case 3:
-                gerenciador.buscarContatoScanner();
+                System.out.println();
+                System.out.println("BUSCAR CONTATO:");
+                System.out.println();
+                String nome3 = input.pedirStringMesmaLinha("Insira o nome: ");
+                gerenciador.buscarContato(nome3);
             break;
 
             case 4:
+                System.out.println();
+                System.out.println("LISTAR CONTATOS:");
+                System.out.println();
                 gerenciador.listarContatos();
             break;
 
             default:
-                return;
+                System.out.println();
+                System.out.println("Saindo...");
+                System.out.println();
+            return;
+
         }
+
+    }
+
 
     }
 }
