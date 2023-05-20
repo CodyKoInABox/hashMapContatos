@@ -2,6 +2,14 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
+
+    public Menu() {}
+    
+    public Menu(String[] descricoes) {
+        for(String descricao : descricoes){
+            this.adicionarItem(descricao);
+        }
+    }
     
     private HashMap<Integer, String> items = new HashMap<Integer, String>();
 
