@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class GerenciadorDeContatos {
     
@@ -11,11 +12,35 @@ public class GerenciadorDeContatos {
         System.out.println();
     }
 
+    public void adicionarContatoScanner(){
+        System.out.println();
+        System.out.println("Adicionar contato:");
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Insira o nome: ");
+        String nome = scanner.nextLine();
+        System.out.println();
+        System.out.print("Insira o telefone: ");
+        String telefone = scanner.nextLine();
+        scanner.close();
+        this.adicionarContato(nome, telefone);
+    }
+
     public void removerContato(String nome){
         this.contatos.remove(nome);
 
         System.out.println("Contato removido: " + nome);
         System.out.println();
+    }
+
+    public void removerContatoScanner(){
+        System.out.println();
+        System.out.println("Remover contato:");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
+        System.out.print("Insira o nome: ");
+        String nome = scanner.nextLine();
+        scanner.close();
+        this.removerContato(nome);
     }
 
     public void buscarContato(String nome){
@@ -26,6 +51,17 @@ public class GerenciadorDeContatos {
         }else{
             System.out.println(telefone);
         }
+    }
+
+    public void buscarContatoScanner(){
+        System.out.println();
+        System.out.println("Buscar contato:");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println();
+        System.out.print("Insira o nome: ");
+        String nome = scanner.nextLine();
+        scanner.close();
+        this.buscarContato(nome);
     }
 
     public void listarContatos(){
