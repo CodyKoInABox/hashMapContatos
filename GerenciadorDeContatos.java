@@ -27,14 +27,14 @@ public class GerenciadorDeContatos {
         if(telefone == null){
             System.out.println(nome + " nao possui um telefone salvo.");
         }else{
-            System.out.println(telefone);
+            System.out.println("Telefone de " + nome + ": " + telefone);
         }
     }
 
     public void listarContatos(){
 
         System.out.println();
-        System.out.println("Contatos:");
+        System.out.println("Lista de Contatos:");
 
         contatos.forEach((key, value) -> {
             System.out.print(key);
