@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 public class Main{
     
     public static void main(String args[]){
@@ -11,6 +13,7 @@ public class Main{
 
         Menu menu = new Menu(itemsMenu);
         
+
         while(true){
 
         menu.abrir();
@@ -51,8 +54,15 @@ public class Main{
 
             default:
                 System.out.println();
-                System.out.println("Saindo...");
+                System.out.println("Salvando e Saindo...");
                 System.out.println();
+
+                try {
+                    gerenciador.serialize("test.ser", gerenciador);
+                } catch (IOException e) {
+                    // Auto-generated catch block
+                    e.printStackTrace();
+                }
             return;
 
         }
