@@ -1,12 +1,34 @@
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 
 public class Main{
     
     public static void main(String args[]){
 
+        GerenciadorDeContatos gerenciador;
+
+        
+        try{
+            FileInputStream fileIn = new FileInputStream("gerenciadorSalvo.ser");
+
+            ObjectInputStream in = new ObjectInputStream(fileIn);
+    
+            gerenciador = (GerenciadorDeContatos) in.readObject();
+            
+            in.close();
+            fileIn.close();
+        }catch (IOException e) {
+            gerenciador = new GerenciadorDeContatos();
+        } catch (ClassNotFoundException e) {
+            gerenciador = new GerenciadorDeContatos();
+        }
+
+
         Input input = new Input();
         
-        GerenciadorDeContatos gerenciador = new GerenciadorDeContatos();
+        //GerenciadorDeContatos gerenciador = new GerenciadorDeContatos();
 
 
         String[] itemsMenu = {"Adicionar Contato", "Remover Contato", "Buscar Contato", "Listar Contatos", "Sair"};
@@ -58,7 +80,7 @@ public class Main{
                 System.out.println();
 
                 try {
-                    gerenciador.serialize("test.ser", gerenciador);
+                    gerenciador.serialize("gerenciadorSalvo.ser", gerenciador);
                 } catch (IOException e) {
                     // Auto-generated catch block
                     e.printStackTrace();
