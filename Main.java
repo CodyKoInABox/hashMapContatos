@@ -13,5 +13,9 @@ public class Main{
 
         gerenciador.listarContatos();
 
+        Menu menu = new Menu();
+        menu.adicionarItem("Adicionar Contato");
+        System.out.println(menu.abrirESelecionarOpcao());
+
     }
 }
