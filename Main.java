@@ -9,7 +9,7 @@ public class Main{
 
         gerenciador.removerContato("Joao");
 
-        gerenciador.buscarContato("Maria");
+        gerenciador.buscarContato("Joao");
 
         gerenciador.listarContatos();
 

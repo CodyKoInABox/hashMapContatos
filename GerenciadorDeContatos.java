@@ -19,7 +19,13 @@ public class GerenciadorDeContatos {
     }
 
     public void buscarContato(String nome){
-        System.out.println(this.contatos.get(nome));
+        String telefone = this.contatos.get(nome);
+
+        if(telefone == null){
+            System.out.println(nome + " nao possui um telefone salvo.");
+        }else{
+            System.out.println(telefone);
+        }
     }
 
     public void listarContatos(){
